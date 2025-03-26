@@ -1,5 +1,5 @@
 var int x
-x = 10
+x = 30
 var y = 20
 var conta = (x + y) ** (x * 2) / (y - x)
 
