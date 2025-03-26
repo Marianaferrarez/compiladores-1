@@ -13,12 +13,12 @@
 
 %%
 (\/\/\ .*\n?)|(\/\*(.|\n)*\*\/) { return C; } // comentario // ou /**/
-var(\ (int|fl|db|str|char|bool))?\ [A-Za-z_][A-Za-z0-9_]*       { return V; } // var
-[1-9][0-9]* 					{ return I;    } // int
-(0|[1-9][0-9]*)\.[0-9]+         { return F;  } // float/double
-'.'                             { return Ch;   } // char
-true|false                      { return B;   } // boolean
-\"([^"\\]*(\\.[^"\\]*)*)\"      { return S; } // strings
+^\s*var(\ (int|fl|db|str|char|bool))?\ [A-Za-z_][A-Za-z0-9_]*       { return V; } // var
+\s*[1-9][0-9]* 					{ return I;    } // int
+\s*(0|[1-9][0-9]*)\.[0-9]+         { return F;  } // float/double
+^\s*'.'                             { return Ch;   } // char
+^\s*true|false                      { return B;   } // boolean
+^\s*\"([^"\\]*(\\.[^"\\]*)*)\"      { return S; } // strings
 [ \n\t]+						{ return T; }
 .								{ return T; }
 <<EOF>>							{ return X; }
